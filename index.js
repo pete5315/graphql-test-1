@@ -12,6 +12,8 @@ mongoose.connect("mongodb://localhost:27017/graphql", {
   useUnifiedTopology: true,
 });
 
+//mongodb+srv://pete5315:<password>@cluster0.bnnvhkl.mongodb.net/?retryWrites=true&w=majority
+
 // Define your GraphQL schema
 const schema = buildSchema(`
   type User {
