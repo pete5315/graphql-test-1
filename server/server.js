@@ -1,6 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const uri = require("./atlas_uri");
+const uri = require("../atlas_uri");
 const bodyParser = require("body-parser");
 // require("dotenv").config();
 
@@ -12,11 +12,6 @@ const port = 3000;
 
 // Route includes
 const usersRouter = require("./routes/users.router")
-// const userRouter = require("./routes/user.router");
-// const surveyResponsesRouter = require("./routes/survey-responses.router");
-// const emergenciesRouter = require("./routes/emergencies.router");
-// const eventsRouter = require("./routes/events.router");
-// const injuriesRouter = require("./routes/injuries.router");
 
 // Body parser middleware
 app.use(bodyParser.json());
@@ -42,7 +37,7 @@ mongoose.connect(
 
 
 //Routes 
-app.use("/api/users", usersRouter);
+app.use("/users", usersRouter);
 
 
 //endpoint

@@ -1,7 +1,7 @@
 //import requirements for connecting to database
 const { json } = require("express");
 const { MongoClient } = require("mongodb");
-const uri = require("./atlas_uri");
+const uri = require("../../atlas_uri");
 
 //set up the client to connect so we don't need to write things like db.connection.idontknowwhat
 const client = new MongoClient(uri);

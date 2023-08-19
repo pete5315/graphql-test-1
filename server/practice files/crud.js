@@ -1,6 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const uri = require("./atlas_uri");
+const uri = require("../../atlas_uri");
 const bodyParser = require('body-parser');
 
 const app = express();

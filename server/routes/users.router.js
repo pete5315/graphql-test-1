@@ -2,18 +2,22 @@ const express = require("express");
 const {
   rejectUnauthenticated,
 } = require("../modules/authentication-middleware");
-const pool = require("../modules/pool");
+const User = require ("../models/user")
+// const pool = require("../modules/pool");
 
+// const router = express.Router();
+const app = express();
 const router = express.Router();
+console.log("in users router")
 
 // Define your routes and endpoints
-app.get("/users", async (req, res) => {
+router.get("/", async (req, res) => {
   // Get all users
   const users = await User.find();
   res.json(users);
 });
 
-app.post("/users", async (req, res) => {
+router.post("/", async (req, res) => {
   console.log(req.body);
   // Create a new user
   const newUser = new User({
@@ -24,7 +28,7 @@ app.post("/users", async (req, res) => {
   res.json(newUser);
 });
 
-app.put("/users/:id", async (req, res) => {
+router.put("/:id", async (req, res) => {
   // Update a user by ID
   const user = await User.findById(req.params.id);
   user.name = req.body.name;
@@ -33,10 +37,10 @@ app.put("/users/:id", async (req, res) => {
   res.json(user);
 });
 
-app.delete("/users/:id", async (req, res) => {
+router.delete("/:id", async (req, res) => {
   // Delete a user by ID
   await User.findByIdAndDelete(req.params.id);
   res.sendStatus(204);
 });
 
-module.exports = usersRouter
+module.exports = router
